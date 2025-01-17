@@ -27,8 +27,15 @@ defmodule TrudyFoodTrackerWeb.FoodController do
   end
 
   def show(conn, %{"id" => id}) do
-    food = Foods.get_food!(id)
-    render(conn, :show, food: food)
+    case Foods.get_food(id) do
+      nil ->
+        conn
+        |> put_flash(:error, "Food not found.")
+        |> redirect(to: ~p"/foods")
+
+      food ->
+        render(conn, :show, food: food)
+    end
   end
 
   def edit(conn, %{"id" => id}) do

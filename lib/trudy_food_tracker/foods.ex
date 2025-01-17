@@ -37,6 +37,18 @@ defmodule TrudyFoodTracker.Foods do
   """
   def get_food!(id), do: Repo.get!(Food, id)
 
+  def get_food(id) do
+    case Integer.parse(id) do
+      {id, ""} ->
+        case Repo.get(Food, id) do
+          nil -> nil #redirect
+          %Food{} = food -> food
+        end
+
+        _ -> nil
+    end
+  end
+
   @doc """
   Creates a food.
 
