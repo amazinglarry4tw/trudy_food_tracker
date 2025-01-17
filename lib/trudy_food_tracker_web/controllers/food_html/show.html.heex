@@ -1,0 +1,17 @@
+<.header>
+  Food {@food.id}
+  <:subtitle>This is a food record from your database.</:subtitle>
+  <:actions>
+    <.link href={~p"/foods/#{@food}/edit"}>
+      <.button>Edit food</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+  <:item title="Brand">{@food.brand}</:item>
+  <:item title="Flavor">{@food.flavor}</:item>
+  <:item title="Portion">{@food.portion}</:item>
+</.list>
+
+<.back navigate={~p"/foods"}>Back to foods</.back>

@@ -1,0 +1,8 @@
+<.header>
+  New Food
+  <:subtitle>Use this form to manage food records in your database.</:subtitle>
+</.header>
+
+<.food_form changeset={@changeset} action={~p"/foods"} />
+
+<.back navigate={~p"/foods"}>Back to foods</.back>
