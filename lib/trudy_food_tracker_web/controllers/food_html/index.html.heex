@@ -4,13 +4,15 @@
     <.link href={~p"/foods/new"}>
       <.button>New Food</.button>
     </.link>
+    <.link href={~p"/foods/1"}>
+      <.button>First Food</.button>
+    </.link>
   </:actions>
 </.header>
 
 <.table id="foods" rows={@foods} row_click={&JS.navigate(~p"/foods/#{&1}")}>
   <:col :let={food} label="Brand">{food.brand}</:col>
   <:col :let={food} label="Flavor">{food.flavor}</:col>
-  <:col :let={food} label="Portion">{food.portion}</:col>
   <:action :let={food}>
     <div class="sr-only">
       <.link navigate={~p"/foods/#{food}"}>Show</.link>

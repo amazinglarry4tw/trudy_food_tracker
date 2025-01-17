@@ -5,7 +5,7 @@ defmodule TrudyFoodTracker.Foods.Food do
   schema "foods" do
     field :brand, :string
     field :flavor, :string
-    field :portion, :string
+    field :portion_type, :string
 
     timestamps(type: :utc_datetime)
   end
@@ -13,7 +13,7 @@ defmodule TrudyFoodTracker.Foods.Food do
   @doc false
   def changeset(food, attrs) do
     food
-    |> cast(attrs, [:brand, :flavor, :portion])
-    |> validate_required([:brand, :flavor, :portion])
+    |> cast(attrs, [:brand, :flavor, :portion_type])
+    |> validate_required([:brand, :flavor, :portion_type])
   end
 end
